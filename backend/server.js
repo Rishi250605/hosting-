@@ -1,6 +1,12 @@
 const app = require('./app');
 const path = require('path');
 const connectDatabase = require('./config/database');
+const cors = require('cors');
+app.use(cors({
+    origin: "https://yashodha-frontend.onrender.com", // Allow only your frontend domain
+    methods: ["GET", "POST", "PUT", "DELETE"], // Allow only these methods
+    credentials: true // If you're sending cookies or authentication headers
+}));
 
 
 connectDatabase();
